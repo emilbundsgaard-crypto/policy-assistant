@@ -1,0 +1,23 @@
+[
+  {"question": "How many vacation days do I get per year?", "expected": "Vacation Policy"},
+  {"question": "Can I work from home?", "expected": "Remote Work Policy"},
+  {"question": "How often do I have to change my password?", "expected": "Password Policy"},
+  {"question": "Do I need approval before spending $800 on a business expense?", "expected": "Expense Approval Policy"},
+  {"question": "How long is parental leave?", "expected": "Parental Leave Policy"},
+  {"question": "How many days off do I get if a family member dies?", "expected": "Bereavement Leave Policy"},
+  {"question": "How long is the trial period for new hires?", "expected": "Probation Period Policy"},
+  {"question": "What should I wear to the office?", "expected": "Dress Code Policy"},
+  {"question": "Can I work from another country for a few weeks?", "expected": "Work From Abroad Policy"},
+  {"question": "How fast do I have to hand in receipts after a business trip?", "expected": "Travel Reimbursement Policy"},
+  {"question": "Can I install Spotify on my work laptop?", "expected": "Software Installation Policy"},
+  {"question": "What do I do if I think my account has been hacked?", "expected": "Security Incident Policy"},
+  {"question": "Will the company pay for my master's degree?", "expected": "Tuition Assistance Policy"},
+  {"question": "Can I talk to a journalist about our new product?", "expected": "Media Contact Policy"},
+  {"question": "How long is the product warranty?", "expected": "Warranty Policy"},
+  {"question": "Can I get an ergonomic chair for my home office?", "expected": "Home Office Equipment Policy"},
+  {"question": "What is the CEO's salary?", "expected": "NONE"},
+  {"question": "Can I bring my dog to the office?", "expected": "NONE"},
+  {"question": "Is there free lunch in the cafeteria?", "expected": "NONE"},
+  {"question": "How much is the annual Christmas bonus?", "expected": "NONE"},
+  {"question": "Can I get a company car allowance for my commute?", "expected": "NONE"}
+]

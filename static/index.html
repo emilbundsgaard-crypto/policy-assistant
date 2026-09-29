@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Company Policy Assistant</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --text: #1d1d1b; --muted: #6b6b66; --line: #e3e3de;
+    --accent: #2f5bea; --ok: #1f8a4c; --bad: #c2362b; --warn: #b7791f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151514; --card: #1f1f1d; --text: #ececea; --muted: #9a9a94; --line: #33332f;
+      --accent: #7c9bff; --ok: #4cc27f; --bad: #ff7a6e; --warn: #e0a84a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 40px 0 12px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  form { display: flex; gap: 8px; flex-wrap: wrap; }
+  input { flex: 1 1 280px; padding: 10px 12px; font: inherit; color: var(--text); background: var(--bg);
+          border: 1px solid var(--line); border-radius: 8px; }
+  button { padding: 10px 16px; font: inherit; font-weight: 600; color: #fff; background: var(--accent);
+           border: 0; border-radius: 8px; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: wait; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+  .method { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .policy { font-weight: 600; margin: 6px 0; }
+  .meta { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  td.num { font-variant-numeric: tabular-nums; }
+  .ok { color: var(--ok); font-weight: 600; } .bad { color: var(--bad); font-weight: 600; }
+  .ans { color: var(--muted); font-size: 13px; }
+  .prose p { max-width: 75ch; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Company Policy Assistant</h1>
+  <p class="sub">Rules-based search vs. LLM without a vector index vs. LLM with a vector index (RAG), on a database of 98 company policies.</p>
+
+  <section class="card">
+    <form id="ask">
+      <input id="q" placeholder="Ask a policy question, e.g. How many vacation days do I get?" maxlength="300" required>
+      <button id="btn">Ask all three</button>
+    </form>
+    <div id="live" class="grid"></div>
+  </section>
+
+  <h2>Comparison</h2>
+  <div class="prose">
+    <!-- AFSNIT 1 og 2 skrives, når results.json er genereret med rigtige tal -->
+    <p id="p1">[Paragraph 1: how the three approaches compare on correct policy, unsupported answers, response time and token use.]</p>
+    <p id="p2">[Paragraph 2: preferred approach and why.]</p>
+  </div>
+
+  <h2>Summary</h2>
+  <div class="scroll"><table id="summary"><tr><td>Loading…</td></tr></table></div>
+
+  <h2>Answers per test question</h2>
+  <div class="scroll"><table id="rows"><tr><td>Loading…</td></tr></table></div>
+
+  <footer id="foot"></footer>
+</main>
+
+<script>
+const NAMES = { rules: "Rules-based search", llm_full: "LLM without vector index", llm_rag: "LLM with vector index" };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function card(name, r) {
+  if (r.error) return `<div class="card"><div class="method">${NAMES[name]}</div><p class="bad">${esc(r.error)}</p></div>`;
+  return `<div class="card">
+    <div class="method">${NAMES[name]}</div>
+    <div class="policy">${esc(r.policy)}</div>
+    <div>${esc(r.answer)}</div>
+    <div class="meta">${r.time_ms} ms · ${r.tokens.total} tokens (${r.tokens.input} in / ${r.tokens.output} out)</div>
+  </div>`;
+}
+
+document.getElementById("ask").addEventListener("submit", async e => {
+  e.preventDefault();
+  const btn = document.getElementById("btn"), live = document.getElementById("live");
+  btn.disabled = true; live.innerHTML = `<p class="meta">Asking… (first request can take ~1 min if the server was asleep)</p>`;
+  try {
+    const res = await fetch("/api/ask", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: document.getElementById("q").value }) });
+    const data = await res.json();
+    live.innerHTML = res.ok ? Object.keys(NAMES).map(n => card(n, data[n])).join("") : `<p class="bad">${esc(data.detail)}</p>`;
+  } catch (err) { live.innerHTML = `<p class="bad">${esc(err)}</p>`; }
+  btn.disabled = false;
+});
+
+(async () => {
+  const res = await fetch("/api/results");
+  if (!res.ok) { document.getElementById("summary").innerHTML = `<tr><td>No results yet. Run evaluate.py.</td></tr>`; document.getElementById("rows").innerHTML = ""; return; }
+  const d = await res.json(), M = Object.keys(NAMES);
+
+  document.getElementById("summary").innerHTML =
+    `<tr><th>Approach</th><th>Correct policy</th><th>Unsupported answers</th><th>Missed (said none)</th><th>Avg. response time</th><th>Avg. tokens</th></tr>` +
+    M.map(m => { const s = d.summary[m]; return `<tr><td>${NAMES[m]}</td>
+      <td class="num">${s.correct}/${s.n}</td><td class="num">${s.unsupported}/${s.n}</td><td class="num">${s.missed}/${s.n}</td>
+      <td class="num">${s.avg_time_ms} ms</td><td class="num">${s.avg_tokens_total}</td></tr>`; }).join("");
+
+  document.getElementById("rows").innerHTML =
+    `<tr><th>Question</th><th>Expected policy</th>${M.map(m => `<th>${NAMES[m]}</th>`).join("")}</tr>` +
+    d.rows.map(r => `<tr><td>${esc(r.question)}</td><td>${esc(r.expected)}</td>` +
+      M.map(m => { const x = r.results[m], g = x.grade;
+        return `<td><span class="${g.correct ? "ok" : "bad"}">${g.correct ? "✓" : "✗"} ${esc(x.policy)}</span>
+          <div class="ans">${esc(x.answer)}</div><div class="ans">${x.time_ms} ms · ${x.tokens.total} tok</div></td>`; }).join("") + `</tr>`).join("");
+
+  document.getElementById("foot").textContent =
+    `Model: ${d.model} · Embeddings: ${d.embed_model} · Test set: ${d.rows.length} questions · Generated ${d.generated_at}. ` +
+    `"Unsupported" = the approach named a policy that does not support the answer (wrong policy, or answered a question the database does not cover).`;
+})();
+</script>
+</body>
+</html>
