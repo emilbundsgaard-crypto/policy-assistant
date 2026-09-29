@@ -3,6 +3,10 @@ Kræver i .env: SLACK_BOT_TOKEN (xoxb-...) og SLACK_APP_TOKEN (xapp-...)
 Kør: python3 slack_bot.py"""
 import os
 
+# Mac-fix: Python fra python.org mangler certifikater -> brug certifi's
+import certifi
+os.environ.setdefault("SSL_CERT_FILE", certifi.where())
+
 from dotenv import load_dotenv
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
