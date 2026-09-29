@@ -40,7 +40,7 @@
   td.num { font-variant-numeric: tabular-nums; }
   .ok { color: var(--ok); font-weight: 600; } .bad { color: var(--bad); font-weight: 600; }
   .ans { color: var(--muted); font-size: 13px; }
-  .prose p { max-width: 75ch; }
+  .prose p { max-width: 100ch; margin: 0 0 8px; }
   footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
 </style>
 </head>
@@ -59,8 +59,8 @@
 
   <h2>Comparison</h2>
   <div class="prose">
-    <p id="p1">Rules-based search is instant (0.32 ms, 0 tokens) but only found the right policy in 10/21 questions. The LLM without an index got 20/21, but sends all 98 policies every time (2,773.62 tokens per question). The LLM with an index got 21/21 using only 208.95 tokens (92.47% fewer), but was 432.97 ms slower.</p>
-    <p id="p2">We prefer the LLM with a vector index: it was the most accurate, never made up an answer, and stays cheap even if more policies are added.</p>
+    <p id="p1">Rules-based search is instant and uses no tokens, but found the right policy in only 10/21 cases. The LLMs scored 20/21 (no index) and 21/21 (vector index) with no unsupported answers, but without an index each question costs 2,773.62 tokens vs. 208.95 with one.</p>
+    <p id="p2">We prefer the LLM with a vector index: best accuracy, 92.47% fewer tokens, and the extra 432.97 ms does not matter in Slack.</p>
   </div>
 
   <h2>Summary</h2>
