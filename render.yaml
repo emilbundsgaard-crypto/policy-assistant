@@ -7,5 +7,10 @@ services:
     startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
+      # Indtastes manuelt i Render, ligger aldrig i GitHub
       - key: GEMINI_API_KEY
-        sync: false   # indtastes manuelt i Render, ligger aldrig i GitHub
+        sync: false
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_SIGNING_SECRET
+        sync: false

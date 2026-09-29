@@ -1,6 +1,7 @@
 """Webapp til Render: viser sammenligningen og lader brugeren stille et live-spørgsmål.
 Lokalt: uvicorn app:app --reload   ->  http://127.0.0.1:8000"""
 import json
+import os
 import time
 from collections import defaultdict, deque
 
@@ -15,6 +16,22 @@ from common import BASE_DIR
 
 app = FastAPI(title="Company Policy Assistant")
 RESULTS = BASE_DIR / "results.json"
+
+# Slack-botten via HTTP (Events API). Aktiveres kun når tokens er sat i Render.
+if os.getenv("SLACK_BOT_TOKEN") and os.getenv("SLACK_SIGNING_SECRET"):
+    from slack_bolt import App as SlackApp
+    from slack_bolt.adapter.fastapi import SlackRequestHandler
+
+    from slack_handlers import register
+
+    slack_app = SlackApp(token=os.environ["SLACK_BOT_TOKEN"],
+                         signing_secret=os.environ["SLACK_SIGNING_SECRET"])
+    register(slack_app)
+    slack_handler = SlackRequestHandler(slack_app)
+
+    @app.post("/slack/events")
+    async def slack_events(request: Request):
+        return await slack_handler.handle(request)
 
 # Simpel beskyttelse mod misbrug af API-nøglen: maks 10 live-spørgsmål pr. minut pr. IP
 _hits = defaultdict(deque)

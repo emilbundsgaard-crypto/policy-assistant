@@ -13,7 +13,7 @@ Generation model: `gemini-3.1-flash-lite`. On API errors every call retries ever
 ## Files
 - `evaluate.py` runs all three approaches on `testset.json` (21 questions, 5 not covered by the database) and writes `results.json`.
 - `app.py` + `static/index.html` is the website (FastAPI), deployed on Render via `render.yaml`.
-- `slack_bot.py` is the Slack bot (Socket Mode, runs locally, uses the RAG approach). `slack_manifest.yml` creates the Slack app.
+- Slack bot (uses the RAG approach): hosted on Render via `POST /slack/events` in `app.py` (Slack Events API). `slack_bot.py` runs the same bot locally via Socket Mode instead. Shared logic is in `slack_handlers.py`; `slack_manifest.yml` creates the Slack app.
 
 ## Run locally
 ```
