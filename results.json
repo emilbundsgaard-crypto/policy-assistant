@@ -1,0 +1,1533 @@
+{
+  "generated_at": "2026-09-29T13:29:30+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "embed_model": "gemini-embedding-001",
+  "summary": {
+    "rules": {
+      "n": 21,
+      "correct": 10,
+      "unsupported": 10,
+      "invented_policy": 0,
+      "missed": 1,
+      "avg_time_ms": 0.32,
+      "avg_tokens_input": 0.0,
+      "avg_tokens_output": 0.0,
+      "avg_tokens_total": 0.0
+    },
+    "llm_full": {
+      "n": 21,
+      "correct": 20,
+      "unsupported": 0,
+      "invented_policy": 0,
+      "missed": 1,
+      "avg_time_ms": 2291.98,
+      "avg_tokens_input": 2750.95,
+      "avg_tokens_output": 22.67,
+      "avg_tokens_total": 2773.62
+    },
+    "llm_rag": {
+      "n": 21,
+      "correct": 21,
+      "unsupported": 0,
+      "invented_policy": 0,
+      "missed": 0,
+      "avg_time_ms": 2724.95,
+      "avg_tokens_input": 180.0,
+      "avg_tokens_output": 28.95,
+      "avg_tokens_total": 208.95
+    }
+  },
+  "rows": [
+    {
+      "question": "How many vacation days do I get per year?",
+      "expected": "Vacation Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How many vacation days do I get per year?",
+          "answer": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "policy": "Vacation Policy",
+          "score": 16.006,
+          "time_ms": 0.06,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How many vacation days do I get per year?",
+          "answer": "Employees receive 15 vacation days per year.",
+          "policy": "Vacation Policy",
+          "time_ms": 1784.14,
+          "attempts": 1,
+          "tokens": {
+            "input": 2751,
+            "output": 22,
+            "thinking": 0,
+            "total": 2773
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How many vacation days do I get per year?",
+          "answer": "Employees receive 15 vacation days per year.",
+          "policy": "Vacation Policy",
+          "retrieved": [
+            "Vacation Policy",
+            "Holiday Schedule Policy",
+            "Parental Leave Policy"
+          ],
+          "time_ms": 3214.04,
+          "api_calls": 2,
+          "tokens": {
+            "input": 187,
+            "output": 29,
+            "thinking": 0,
+            "total": 216
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I work from home?",
+      "expected": "Remote Work Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I work from home?",
+          "answer": "Employees may request ergonomic equipment for remote work.",
+          "policy": "Home Office Equipment Policy",
+          "score": 7.85,
+          "time_ms": 0.4,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I work from home?",
+          "answer": "Employees may work remotely up to three days per week with manager approval.",
+          "policy": "Remote Work Policy",
+          "time_ms": 2389.02,
+          "attempts": 1,
+          "tokens": {
+            "input": 2747,
+            "output": 26,
+            "thinking": 0,
+            "total": 2773
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I work from home?",
+          "answer": "Yes, you may work remotely up to three days per week with manager approval.",
+          "policy": "Remote Work Policy",
+          "retrieved": [
+            "Remote Work Policy",
+            "Home Office Equipment Policy",
+            "Flexible Hours Policy"
+          ],
+          "time_ms": 3842.52,
+          "api_calls": 2,
+          "tokens": {
+            "input": 176,
+            "output": 35,
+            "thinking": 0,
+            "total": 211
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How often do I have to change my password?",
+      "expected": "Password Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How often do I have to change my password?",
+          "answer": "Passwords must be changed every 90 days and meet complexity requirements.",
+          "policy": "Password Policy",
+          "score": 6.747,
+          "time_ms": 0.32,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How often do I have to change my password?",
+          "answer": "Passwords must be changed every 90 days.",
+          "policy": "Password Policy",
+          "time_ms": 1990.48,
+          "attempts": 1,
+          "tokens": {
+            "input": 2751,
+            "output": 21,
+            "thinking": 0,
+            "total": 2772
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How often do I have to change my password?",
+          "answer": "Passwords must be changed every 90 days.",
+          "policy": "Password Policy",
+          "retrieved": [
+            "Password Policy",
+            "Cybersecurity Awareness Policy",
+            "Account Management Policy"
+          ],
+          "time_ms": 4542.87,
+          "api_calls": 2,
+          "tokens": {
+            "input": 176,
+            "output": 28,
+            "thinking": 0,
+            "total": 204
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Do I need approval before spending $800 on a business expense?",
+      "expected": "Expense Approval Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Do I need approval before spending $800 on a business expense?",
+          "answer": "All expenses over $500 require prior approval from Finance.",
+          "policy": "Expense Approval Policy",
+          "score": 9.04,
+          "time_ms": 0.43,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Do I need approval before spending $800 on a business expense?",
+          "answer": "Yes, all expenses over $500 require prior approval from Finance.",
+          "policy": "Expense Approval Policy",
+          "time_ms": 2635.31,
+          "attempts": 1,
+          "tokens": {
+            "input": 2756,
+            "output": 27,
+            "thinking": 0,
+            "total": 2783
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Do I need approval before spending $800 on a business expense?",
+          "answer": "Yes, all expenses over $500 require prior approval from Finance.",
+          "policy": "Expense Approval Policy",
+          "retrieved": [
+            "Expense Approval Policy",
+            "Conference Attendance Policy",
+            "Procurement Policy"
+          ],
+          "time_ms": 3657.1,
+          "api_calls": 3,
+          "tokens": {
+            "input": 183,
+            "output": 34,
+            "thinking": 0,
+            "total": 217
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How long is parental leave?",
+      "expected": "Parental Leave Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How long is parental leave?",
+          "answer": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "policy": "Parental Leave Policy",
+          "score": 11.497,
+          "time_ms": 0.42,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How long is parental leave?",
+          "answer": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "policy": "Parental Leave Policy",
+          "time_ms": 3420.17,
+          "attempts": 1,
+          "tokens": {
+            "input": 2747,
+            "output": 29,
+            "thinking": 0,
+            "total": 2776
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How long is parental leave?",
+          "answer": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "policy": "Parental Leave Policy",
+          "retrieved": [
+            "Parental Leave Policy",
+            "Vacation Policy",
+            "Bereavement Leave Policy"
+          ],
+          "time_ms": 2000.97,
+          "api_calls": 2,
+          "tokens": {
+            "input": 187,
+            "output": 36,
+            "thinking": 0,
+            "total": 223
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How many days off do I get if a family member dies?",
+      "expected": "Bereavement Leave Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How many days off do I get if a family member dies?",
+          "answer": "Employees accrue sick leave monthly for personal or family illness.",
+          "policy": "Sick Leave Policy",
+          "score": 3.761,
+          "time_ms": 0.36,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How many days off do I get if a family member dies?",
+          "answer": "Employees may take up to 5 days of bereavement leave.",
+          "policy": "Bereavement Leave Policy",
+          "time_ms": 2593.97,
+          "attempts": 1,
+          "tokens": {
+            "input": 2754,
+            "output": 25,
+            "thinking": 0,
+            "total": 2779
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How many days off do I get if a family member dies?",
+          "answer": "You may take up to 5 days of bereavement leave.",
+          "policy": "Bereavement Leave Policy",
+          "retrieved": [
+            "Bereavement Leave Policy",
+            "Vacation Policy",
+            "Sick Leave Policy"
+          ],
+          "time_ms": 2218.54,
+          "api_calls": 2,
+          "tokens": {
+            "input": 190,
+            "output": 32,
+            "thinking": 0,
+            "total": 222
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How long is the trial period for new hires?",
+      "expected": "Probation Period Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How long is the trial period for new hires?",
+          "answer": "New hires are subject to a 90-day probation period.",
+          "policy": "Probation Period Policy",
+          "score": 12.341,
+          "time_ms": 0.32,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How long is the trial period for new hires?",
+          "answer": "New hires are subject to a 90-day probation period.",
+          "policy": "Probation Period Policy",
+          "time_ms": 1938.38,
+          "attempts": 1,
+          "tokens": {
+            "input": 2751,
+            "output": 27,
+            "thinking": 0,
+            "total": 2778
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How long is the trial period for new hires?",
+          "answer": "The probation period for new hires is 90 days.",
+          "policy": "Probation Period Policy",
+          "retrieved": [
+            "Probation Period Policy",
+            "Onboarding Policy",
+            "Background Check Policy"
+          ],
+          "time_ms": 4818.73,
+          "api_calls": 2,
+          "tokens": {
+            "input": 179,
+            "output": 32,
+            "thinking": 0,
+            "total": 211
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "What should I wear to the office?",
+      "expected": "Dress Code Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "What should I wear to the office?",
+          "answer": "Access badges must be worn and not shared.",
+          "policy": "Office Access Policy",
+          "score": 5.409,
+          "time_ms": 0.3,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "What should I wear to the office?",
+          "answer": "Employees are expected to dress in business casual attire.",
+          "policy": "Dress Code Policy",
+          "time_ms": 2678.08,
+          "attempts": 2,
+          "tokens": {
+            "input": 2749,
+            "output": 22,
+            "thinking": 0,
+            "total": 2771
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "What should I wear to the office?",
+          "answer": "Employees are expected to dress in business casual attire.",
+          "policy": "Dress Code Policy",
+          "retrieved": [
+            "Dress Code Policy",
+            "Office Access Policy",
+            "Remote Work Policy"
+          ],
+          "time_ms": 1644.04,
+          "api_calls": 2,
+          "tokens": {
+            "input": 178,
+            "output": 29,
+            "thinking": 0,
+            "total": 207
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I work from another country for a few weeks?",
+      "expected": "Work From Abroad Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I work from another country for a few weeks?",
+          "answer": "Employees may work remotely up to three days per week with manager approval.",
+          "policy": "Remote Work Policy",
+          "score": 6.586,
+          "time_ms": 0.3,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I work from another country for a few weeks?",
+          "answer": "Yes, employees may work abroad for up to 30 days with approval.",
+          "policy": "Work From Abroad Policy",
+          "time_ms": 1631.0,
+          "attempts": 1,
+          "tokens": {
+            "input": 2752,
+            "output": 29,
+            "thinking": 0,
+            "total": 2781
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I work from another country for a few weeks?",
+          "answer": "Yes, you may work abroad for up to 30 days with approval.",
+          "policy": "Work From Abroad Policy",
+          "retrieved": [
+            "Work From Abroad Policy",
+            "Vacation Policy",
+            "Remote Work Policy"
+          ],
+          "time_ms": 2928.17,
+          "api_calls": 2,
+          "tokens": {
+            "input": 193,
+            "output": 36,
+            "thinking": 0,
+            "total": 229
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How fast do I have to hand in receipts after a business trip?",
+      "expected": "Travel Reimbursement Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How fast do I have to hand in receipts after a business trip?",
+          "answer": "Departments must maintain business continuity plans.",
+          "policy": "Business Continuity Policy",
+          "score": 5.119,
+          "time_ms": 0.36,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How fast do I have to hand in receipts after a business trip?",
+          "answer": "You must submit receipts for travel expenses within 30 days.",
+          "policy": "Travel Reimbursement Policy",
+          "time_ms": 4017.64,
+          "attempts": 2,
+          "tokens": {
+            "input": 2755,
+            "output": 26,
+            "thinking": 0,
+            "total": 2781
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How fast do I have to hand in receipts after a business trip?",
+          "answer": "You must submit receipts for travel expenses within 30 days.",
+          "policy": "Travel Reimbursement Policy",
+          "retrieved": [
+            "Travel Reimbursement Policy",
+            "Training Reimbursement Policy",
+            "Petty Cash Policy"
+          ],
+          "time_ms": 2255.15,
+          "api_calls": 2,
+          "tokens": {
+            "input": 188,
+            "output": 33,
+            "thinking": 0,
+            "total": 221
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I install Spotify on my work laptop?",
+      "expected": "Software Installation Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I install Spotify on my work laptop?",
+          "answer": "Company laptops must be used for business purposes only.",
+          "policy": "Laptop Usage Policy",
+          "score": 6.938,
+          "time_ms": 0.33,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I install Spotify on my work laptop?",
+          "answer": "No, only approved software may be installed on company devices.",
+          "policy": "Software Installation Policy",
+          "time_ms": 2462.79,
+          "attempts": 1,
+          "tokens": {
+            "input": 2750,
+            "output": 24,
+            "thinking": 0,
+            "total": 2774
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I install Spotify on my work laptop?",
+          "answer": "No, only approved software may be installed on company devices.",
+          "policy": "Software Installation Policy",
+          "retrieved": [
+            "Laptop Usage Policy",
+            "Software Installation Policy",
+            "Mobile Device Policy"
+          ],
+          "time_ms": 3075.13,
+          "api_calls": 2,
+          "tokens": {
+            "input": 180,
+            "output": 31,
+            "thinking": 0,
+            "total": 211
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "What do I do if I think my account has been hacked?",
+      "expected": "Security Incident Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "What do I do if I think my account has been hacked?",
+          "answer": "Accounts must be reviewed quarterly.",
+          "policy": "Account Management Policy",
+          "score": 7.355,
+          "time_ms": 0.34,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "What do I do if I think my account has been hacked?",
+          "answer": "The policy database does not cover this.",
+          "policy": "NONE",
+          "time_ms": 1574.53,
+          "attempts": 1,
+          "tokens": {
+            "input": 2754,
+            "output": 18,
+            "thinking": 0,
+            "total": 2772
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": true
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "What do I do if I think my account has been hacked?",
+          "answer": "Security incidents must be reported immediately.",
+          "policy": "Security Incident Policy",
+          "retrieved": [
+            "Password Policy",
+            "Security Incident Policy",
+            "Helpdesk Ticket Policy"
+          ],
+          "time_ms": 1785.23,
+          "api_calls": 2,
+          "tokens": {
+            "input": 186,
+            "output": 26,
+            "thinking": 0,
+            "total": 212
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Will the company pay for my master's degree?",
+      "expected": "Tuition Assistance Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Will the company pay for my master's degree?",
+          "answer": "No matching policy found.",
+          "policy": "NONE",
+          "score": 0.0,
+          "time_ms": 0.26,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": true
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Will the company pay for my master's degree?",
+          "answer": "Employees may apply for tuition assistance for approved programs.",
+          "policy": "Tuition Assistance Policy",
+          "time_ms": 1749.61,
+          "attempts": 1,
+          "tokens": {
+            "input": 2752,
+            "output": 23,
+            "thinking": 0,
+            "total": 2775
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Will the company pay for my master's degree?",
+          "answer": "Employees may apply for tuition assistance for approved programs.",
+          "policy": "Tuition Assistance Policy",
+          "retrieved": [
+            "Tuition Assistance Policy",
+            "Training Reimbursement Policy",
+            "Mentorship Program Policy"
+          ],
+          "time_ms": 3156.37,
+          "api_calls": 2,
+          "tokens": {
+            "input": 179,
+            "output": 30,
+            "thinking": 0,
+            "total": 209
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I talk to a journalist about our new product?",
+      "expected": "Media Contact Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I talk to a journalist about our new product?",
+          "answer": "Returns must follow the documented return process.",
+          "policy": "Product Return Policy",
+          "score": 4.736,
+          "time_ms": 0.35,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I talk to a journalist about our new product?",
+          "answer": "No, only authorized employees may speak to the media.",
+          "policy": "Media Contact Policy",
+          "time_ms": 3051.51,
+          "attempts": 1,
+          "tokens": {
+            "input": 2752,
+            "output": 23,
+            "thinking": 0,
+            "total": 2775
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I talk to a journalist about our new product?",
+          "answer": "Only authorized employees may speak to the media.",
+          "policy": "Media Contact Policy",
+          "retrieved": [
+            "Media Contact Policy",
+            "Press Release Policy",
+            "Public Speaking Policy"
+          ],
+          "time_ms": 1862.53,
+          "api_calls": 2,
+          "tokens": {
+            "input": 173,
+            "output": 28,
+            "thinking": 0,
+            "total": 201
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How long is the product warranty?",
+      "expected": "Warranty Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How long is the product warranty?",
+          "answer": "Products are covered under warranty for one year.",
+          "policy": "Warranty Policy",
+          "score": 10.621,
+          "time_ms": 0.31,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How long is the product warranty?",
+          "answer": "Products are covered under warranty for one year.",
+          "policy": "Warranty Policy",
+          "time_ms": 1561.9,
+          "attempts": 1,
+          "tokens": {
+            "input": 2748,
+            "output": 20,
+            "thinking": 0,
+            "total": 2768
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How long is the product warranty?",
+          "answer": "Products are covered under warranty for one year.",
+          "policy": "Warranty Policy",
+          "retrieved": [
+            "Warranty Policy",
+            "Product Return Policy",
+            "Quality Assurance Policy"
+          ],
+          "time_ms": 1477.74,
+          "api_calls": 2,
+          "tokens": {
+            "input": 167,
+            "output": 27,
+            "thinking": 0,
+            "total": 194
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I get an ergonomic chair for my home office?",
+      "expected": "Home Office Equipment Policy",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I get an ergonomic chair for my home office?",
+          "answer": "Employees may request ergonomic equipment for remote work.",
+          "policy": "Home Office Equipment Policy",
+          "score": 14.154,
+          "time_ms": 0.34,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I get an ergonomic chair for my home office?",
+          "answer": "Yes, employees may request ergonomic equipment for remote work.",
+          "policy": "Home Office Equipment Policy",
+          "time_ms": 1847.2,
+          "attempts": 1,
+          "tokens": {
+            "input": 2752,
+            "output": 24,
+            "thinking": 0,
+            "total": 2776
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I get an ergonomic chair for my home office?",
+          "answer": "Yes, employees may request ergonomic equipment for remote work.",
+          "policy": "Home Office Equipment Policy",
+          "retrieved": [
+            "Home Office Equipment Policy",
+            "Workplace Accommodation Policy",
+            "Flexible Hours Policy"
+          ],
+          "time_ms": 1864.42,
+          "api_calls": 2,
+          "tokens": {
+            "input": 173,
+            "output": 31,
+            "thinking": 0,
+            "total": 204
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "What is the CEO's salary?",
+      "expected": "NONE",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "What is the CEO's salary?",
+          "answer": "No matching policy found.",
+          "policy": "NONE",
+          "score": 0.0,
+          "time_ms": 0.29,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "What is the CEO's salary?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "time_ms": 1845.83,
+          "attempts": 1,
+          "tokens": {
+            "input": 2749,
+            "output": 18,
+            "thinking": 0,
+            "total": 2767
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "What is the CEO's salary?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "retrieved": [
+            "Vacation Policy",
+            "Performance Review Policy",
+            "Code of Conduct"
+          ],
+          "time_ms": 2194.16,
+          "api_calls": 2,
+          "tokens": {
+            "input": 176,
+            "output": 18,
+            "thinking": 0,
+            "total": 194
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I bring my dog to the office?",
+      "expected": "NONE",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I bring my dog to the office?",
+          "answer": "Access badges must be worn and not shared.",
+          "policy": "Office Access Policy",
+          "score": 5.409,
+          "time_ms": 0.31,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I bring my dog to the office?",
+          "answer": "The policy database does not cover this.",
+          "policy": "NONE",
+          "time_ms": 2809.3,
+          "attempts": 1,
+          "tokens": {
+            "input": 2750,
+            "output": 18,
+            "thinking": 0,
+            "total": 2768
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I bring my dog to the office?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "retrieved": [
+            "Workplace Accommodation Policy",
+            "Remote Work Policy",
+            "Home Office Equipment Policy"
+          ],
+          "time_ms": 2646.45,
+          "api_calls": 2,
+          "tokens": {
+            "input": 176,
+            "output": 25,
+            "thinking": 0,
+            "total": 201
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Is there free lunch in the cafeteria?",
+      "expected": "NONE",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Is there free lunch in the cafeteria?",
+          "answer": "No matching policy found.",
+          "policy": "NONE",
+          "score": 0.0,
+          "time_ms": 0.29,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Is there free lunch in the cafeteria?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "time_ms": 1506.52,
+          "attempts": 1,
+          "tokens": {
+            "input": 2749,
+            "output": 18,
+            "thinking": 0,
+            "total": 2767
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Is there free lunch in the cafeteria?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "retrieved": [
+            "Tuition Assistance Policy",
+            "Mentorship Program Policy",
+            "Conference Attendance Policy"
+          ],
+          "time_ms": 2733.29,
+          "api_calls": 2,
+          "tokens": {
+            "input": 174,
+            "output": 18,
+            "thinking": 0,
+            "total": 192
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "How much is the annual Christmas bonus?",
+      "expected": "NONE",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "How much is the annual Christmas bonus?",
+          "answer": "Employees must complete annual cybersecurity training.",
+          "policy": "Cybersecurity Awareness Policy",
+          "score": 4.363,
+          "time_ms": 0.3,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": false,
+            "unsupported": true,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "How much is the annual Christmas bonus?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "time_ms": 2025.51,
+          "attempts": 1,
+          "tokens": {
+            "input": 2749,
+            "output": 18,
+            "thinking": 0,
+            "total": 2767
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "How much is the annual Christmas bonus?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "retrieved": [
+            "Holiday Schedule Policy",
+            "Vacation Policy",
+            "Client Gift Policy"
+          ],
+          "time_ms": 2413.63,
+          "api_calls": 2,
+          "tokens": {
+            "input": 177,
+            "output": 25,
+            "thinking": 0,
+            "total": 202
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    },
+    {
+      "question": "Can I get a company car allowance for my commute?",
+      "expected": "NONE",
+      "results": {
+        "rules": {
+          "method": "rules",
+          "question": "Can I get a company car allowance for my commute?",
+          "answer": "No matching policy found.",
+          "policy": "NONE",
+          "score": 0.0,
+          "time_ms": 0.3,
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "thinking": 0,
+            "total": 0
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_full": {
+          "method": "llm_full",
+          "question": "Can I get a company car allowance for my commute?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "time_ms": 2618.59,
+          "attempts": 2,
+          "tokens": {
+            "input": 2752,
+            "output": 18,
+            "thinking": 0,
+            "total": 2770
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        },
+        "llm_rag": {
+          "method": "llm_rag",
+          "question": "Can I get a company car allowance for my commute?",
+          "answer": "The policy database does not cover it.",
+          "policy": "NONE",
+          "retrieved": [
+            "Company Vehicle Policy",
+            "Remote Work Policy",
+            "Training Reimbursement Policy"
+          ],
+          "time_ms": 2892.92,
+          "api_calls": 2,
+          "tokens": {
+            "input": 182,
+            "output": 25,
+            "thinking": 0,
+            "total": 207
+          },
+          "grade": {
+            "correct": true,
+            "unsupported": false,
+            "invented_policy": false,
+            "missed": false
+          }
+        }
+      }
+    }
+  ]
+}
